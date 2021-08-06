@@ -1,6 +1,7 @@
 ## Gibbs Sampler for the cBN Model
 
 The network model can be expressed in probability distribution:    
+
 $$
 \begin{array}{rcl}
       logF_\mu &\sim & N(\mu_F, \sigma_F^2)\\
@@ -11,6 +12,7 @@ $$
       \mu_R &=& \beta_{0R} + \beta_{1R}Temp + \beta_{2R}\mu_F + \beta_{3R}\mu_{ml20}
     \end{array}
 $$
+
 These regression models are simplified representations of the model used.  They do not include the interactions between some predictors and eco-region.  The full model has 23 parameters to be estimated (Table 1 in the paper). Instead of using a Markov chain Monte Carlo simulation approach as in Qian and Miltner (2015) that is computationally demanding, we developed a Gibbs sampler algorithm based on linear model theories. It greatly reduces computational intensity and facilitates the predictive Monte Carlo simulation.   
 
 The network that connects these models forms a full set of conditional probability distributions: the joint posterior distribution of coefficients $\boldsymbol{\beta}_{F}=\{\beta_{0F}, \beta_{1F}, \beta_{2F}\}$​ is a multivariate normal distribution conditional on the data ($D_1=\{logF_{\mu}, DA, Precip, P_{Natural}\}$​).  So is the joint posterior distribution of $\boldsymbol{\beta}_{ml20}=\{\beta_{0ml},\beta_{1ml},\beta_{2ml}, \beta_{3ml}\}$​.  These models are not affected by other variables in the network and we can directly draw posterior random samples based on
