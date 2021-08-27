@@ -1,3 +1,5 @@
+# Gibbs Sampler for cBN
+- `GibbsSampler.md`
 # R Code
 
 - `GibbsMS.R` is the main code file, it calls `EcFl1_data.R`
